@@ -91,6 +91,10 @@ public class User implements UserDetails {
         this.password = password;
     }
 
+    public List<Order> getOrders() {
+        return orders;
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return roles;
@@ -99,10 +103,6 @@ public class User implements UserDetails {
     @Override
     public String getUsername() {
         return email;
-    }
-
-    public List<Order> getOrders() {
-        return orders;
     }
 
     public Set<Role> getRoles() {
