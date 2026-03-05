@@ -3,6 +3,7 @@ package com.devsuperior.dscommerce.dto;
 import com.devsuperior.dscommerce.entities.Order;
 import com.devsuperior.dscommerce.entities.OrderItem;
 import com.devsuperior.dscommerce.entities.OrderStatus;
+import jakarta.validation.constraints.NotEmpty;
 
 import java.time.Instant;
 import java.util.ArrayList;
@@ -16,7 +17,11 @@ public class OrderDTO {
     private UserMinDTO client;
     private PaymentDTO payment;
 
+    @NotEmpty(message = "O pedido deve ter pelo menos um item")
     List<OrderItemDTO> items = new ArrayList<>();
+
+    public OrderDTO() {
+    }
 
     public OrderDTO(Long id, Instant moment, OrderStatus status, UserMinDTO client, PaymentDTO payment) {
         this.id = id;
